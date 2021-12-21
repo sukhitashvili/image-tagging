@@ -88,7 +88,7 @@ class Model:
                                         image_features=image_features)
 
         max_pred_conf = abs(values[0].cpu().item())
-        if max_pred_conf <= self.threshold:
+        if max_pred_conf < self.threshold:
             prediction = {
                 'labels': [self.default_label],
                 'confidences': [max_pred_conf]
@@ -118,5 +118,5 @@ if __name__ == '__main__':
     model = Model()
     image = cv2.imread('./data/0.jpg')
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-    pred = model.predict(image=image)
-    print(pred)
+    best_match_label = model.predict(image=image)['labels'][0]
+    print('Image label is: ', best_match_label)

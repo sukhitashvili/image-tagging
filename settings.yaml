@@ -1,8 +1,8 @@
 model-settings:
   top_k: 2  # how many best matches to return
-  prediction-threshold: 0.1  # treat it as a probability value
+  prediction-threshold: 0.3  # treat it as a probability value
   model-name: 'ViT-B/32'
-  device: 'cpu'
+  device: 'cpu'  # or "cuda" if GPU is available on your machine
 label-settings:
   labels: # labels that are used if model's confidence is more than "prediction-threshold"
     - 'green t-shirt'
