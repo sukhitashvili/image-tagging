@@ -1,0 +1,20 @@
+model-settings:
+  top_k: 2  # how many best matches to return
+  prediction-threshold: 0.1  # treat it as a probability value
+  model-name: 'ViT-B/32'
+  device: 'cpu'
+label-settings:
+  labels: # labels that are used if model's confidence is more than "prediction-threshold"
+    - 'green t-shirt'
+    - 'red t-shirt'
+    - 'white t-shirt'
+    - 'white hoodie'
+    - 'black hoodie'
+    - 'red drees'
+    - 'sun set'
+    - 'car parking area'
+    - 'fire in forest'
+    - 'cardigan knit sweater for men'
+    - 'cardigan knit sweater for women'
+  default-label: 'Unknown' # value to return if model's confidence is less than "prediction-threshold"
+
