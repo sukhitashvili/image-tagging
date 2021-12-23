@@ -59,7 +59,7 @@ class Model:
         text_features /= text_features.norm(dim=-1, keepdim=True)
         similarity = image_features @ text_features.T
         values, indices = similarity[0].topk(self.top_k)
-        values = self.softmax(values)
+        values = self.softmax(values)  # only topk are used to make sum of all the probabilities of predictions equal to 1 
         return values, indices
 
     @torch.no_grad()
