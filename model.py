@@ -45,7 +45,7 @@ class Model:
         return text_features
 
     @torch.no_grad()
-    def softmax(self, input_tensor: torch.Tensor, t: float = 0.1):
+    def softmax(self, input_tensor: torch.Tensor, t: float = 0.05):
         logits = torch.exp(input_tensor / t)
         summation = torch.sum(logits, axis=0)
         z = logits / summation
